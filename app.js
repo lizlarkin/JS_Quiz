@@ -24,7 +24,7 @@ var startTime = 60;
 timerEl.textContent = (`${startTime} seconds remain`);
 
 // Define Quiz Questions
-var quizObject = [
+var quizContent = [
    {title: "Question1?",
     choices: ["choice1", "choice2", "choice3"] ,
     answer: "choice3"
@@ -32,9 +32,11 @@ var quizObject = [
    {title: "Question2?",
     choices: ["choice1", "choice2", "choice3"] ,
     answer: "choice2"
-   }]
+   }];
 
-// Add Event Listener to Start Game Button
+   
+// Start Quiz
+// Add Event Listener to Start Quiz Button
 button.addEventListener("click", function() { 
     //Start counter
     timerId = setInterval(countdownTimer, 1000);
@@ -45,8 +47,15 @@ button.addEventListener("click", function() {
     
     // Show first question and first choices
     quizEl.style.display = "initial";
-    quizEl.textContent = quizObject[0];
- 
+    quizEl.textContent = quizContent[0].title + quizContent[0].choices;
+
+});
+
+// Take Quiz
+// Loop through questions and choices
+quizContent.forEach(element => 1 {
+    
+});
 
     // Change choices content  //change this to for each
     // for (let i = 0; i < choices1.length; i++) {
@@ -55,7 +64,7 @@ button.addEventListener("click", function() {
     // li.textContent = (arr1);
     // choicesEl.appendChild(li);
     // }
-});
+
 
 function countdownTimer() {
     startTime--;
