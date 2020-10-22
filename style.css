@@ -1,3 +1,32 @@
+#container {
+    margin-left: 15px;
+}
+
+#scores {
+    border: 1px solid green;
+    margin-bottom: 15px;
+}
+
 h1 {
-    color: red;
+    color: #227093;
+}
+
+button {
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    background-color: #227093;
+    border-style: none;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+button:hover {
+    color: black;
+}
+
+li {
+    float: left;
+    color: white;
+    background-color: #34ace0;
 }

@@ -53,9 +53,7 @@ button.addEventListener("click", function() {
 
 // Take Quiz
 // Loop through questions and choices
-quizContent.forEach(element => 1 {
-    
-});
+
 
     // Change choices content  //change this to for each
     // for (let i = 0; i < choices1.length; i++) {
@@ -69,7 +67,12 @@ quizContent.forEach(element => 1 {
 function countdownTimer() {
     startTime--;
     timerEl.textContent = (`${startTime} seconds remain`);
-    }// add when time === 0 
+    if (startTime <= 0) {
+        quizEl.style.display = "none";
+        highscoresEl.style.display = "initial";
+        timerEl.textContent = "Times up!";
+    }
+    }
 
 
 
