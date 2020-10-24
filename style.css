@@ -2,11 +2,6 @@
     margin-left: 15px;
 }
 
-#scores {
-    border: 1px solid green;
-    margin-bottom: 15px;
-}
-
 h1 {
     color: #227093;
 }
@@ -26,7 +21,13 @@ button:hover {
 }
 
 li {
-    float: left;
     color: white;
     background-color: #34ace0;
+    margin-bottom: 20px;
+    height: 40px;
+    font-size: 25px;
+}
+
+li:hover {
+    background-color: #33d9b2;
 }
