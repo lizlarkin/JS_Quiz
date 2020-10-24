@@ -2,6 +2,10 @@
     margin-left: 15px;
 }
 
+.row {
+    margin-top: 20px;
+}
+
 h1 {
     color: #227093;
 }
@@ -30,4 +34,8 @@ li {
 
 li:hover {
     background-color: #33d9b2;
+}
+
+table, tr, th, td {
+    border: 1px solid black;
 }

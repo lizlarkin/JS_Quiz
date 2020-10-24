@@ -12,6 +12,8 @@ var button = document.querySelector("#button");
 var choices = document.querySelector("li");
 var storeName = document.querySelector("#playerName");
 var storeScore = document.querySelector("#playerScore");
+var scoreEl = document.querySelector("#yourscorediv");
+var finalScore = document.querySelector("#final-score");
 
 var timerId;
 var score = 0;
@@ -21,6 +23,7 @@ var currentIndex = 0;
 // Hide quiz div and scores div 
 quizEl.style.display = "none";
 highscoresEl.style.display = "none";
+scoreEl.style.display = "none";
 scoresEl.textContent = score;
 
 // Timer that counts down from one minute to zero
@@ -30,7 +33,6 @@ function countdownTimer() {
     timerEl.textContent = (`${startTime} seconds remain`);
     if (startTime <= 0) {
         quizEl.style.display = "none";
-        highscoresEl.style.display = "initial";
         timerEl.textContent = "Times up!";
         clearInterval(timerId);
     }
@@ -59,7 +61,6 @@ var questionArray = [
     }
 ]
 
-   
 // Start Quiz
 // Add Event Listener to Start Quiz Button
 button.addEventListener("click", function() { 
@@ -81,7 +82,7 @@ function displayQuestion() {
     choices1El.textContent = questionArray[currentIndex].options[0];
     choices2El.textContent = questionArray[currentIndex].options[1];
     choices3El.textContent = questionArray[currentIndex].options[2];
-}
+};
 
 // Take Quiz
 choices.addEventListener("click", function() {
@@ -97,38 +98,53 @@ choices.addEventListener("click", function() {
     } else {
         endOfGame();
     }
-})
+});
 
-// Score 
-var userName = [];
-var userScore = [];
-var userIndex = 0;
-var userName = 
-
+// End Quiz
 function endOfGame() {
-    // dsplay end of game div
-    highscoresEl.style.display = "initial";
-    quizEl.style.display = "none";
-
-    // collect user information
-    let userInput = prompt("What is your name?");
-    userName.push(userInput);
-    userScore.push(score);
-
-    // display high scores
-    storeName.textContent = userName;
-    storeScore.textContent = userScore;
+    // display user performance
+    quizEl.style.display = "none";   
+    scoreEl.style.display = "initial";
+    finalScore.textContent = score;
 }
 
+// Score History
+
+// // Score 
+// var userIndex = 0;
+
+// var userName = [];
+// var userScore = [];
+
+// function trackScores() {
+//     // display end of game div
+//     highscoresEl.style.display = "initial";
+//     quizEl.style.display = "none";
+
+//     // collect user information
+//     let userInput = prompt("What is your name?");
+//     userName.push(userInput);
+//     userScore.push(score);
+
+//     // display high scores
+//     storeName.textContent = userName;
+//     storeScore.textContent = userScore;
+// };
 
 
-// var player = [
-//     {initials: "",
-//     scores: [] ,
-//     },
-//     {title: "Question2?",
-//      choices: ["choice1", "choice2", "choice3"] ,
-//      answer: "choice2"
-//     }]
-
-
+// var player = {
+//     userName: userInput,
+//     userScore: score,
+// };
+  
+// console.log(player);
+  
+//     // set new submission
+//     localStorage.setItem("player", JSON.stringify(player));
+    
+//     // get most recent submission
+//     var lastPlayer = JSON.parse(localStorage.getItem("player"));
+//     userFirstNameSpan.textContent = lastUser.firstName;
+//     userLastNameSpan.textContent = lastUser.lastName;
+//     userEmailSpan.textContent = lastUser.email;
+//     userPasswordSpan.textContent = lastUser.password;
