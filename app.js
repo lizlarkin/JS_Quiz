@@ -9,11 +9,11 @@ var choices1El = document.querySelector("#choice1");
 var choices2El = document.querySelector("#choice2");
 var choices3El = document.querySelector("#choice3");
 var button = document.querySelector("#button");
-var choices = document.querySelector("li");
-var storeName = document.querySelector("#playerName");
-var storeScore = document.querySelector("#playerScore");
+var storeName = document.querySelector("#player-name");
+var storeScore = document.querySelector("#player-score");
 var scoreEl = document.querySelector("#yourscorediv");
 var finalScore = document.querySelector("#final-score");
+var submitButton = document.querySelector("#submit-button");
 
 var timerId;
 var score = 0;
@@ -85,7 +85,37 @@ function displayQuestion() {
 };
 
 // Take Quiz
-choices.addEventListener("click", function() {
+choices1El.addEventListener("click", function() {
+    if (this.textContent === questionArray[currentIndex].answer) {
+        score++;
+    } else {
+        startTime = startTime - 10;
+    }
+    
+    if (currentIndex < questionArray.length - 1 ) {
+        currentIndex++;
+        displayQuestion();
+    } else {
+        endOfGame();
+    }
+});
+
+choices2El.addEventListener("click", function() {
+    if (this.textContent === questionArray[currentIndex].answer) {
+        score++;
+    } else {
+        startTime = startTime - 10;
+    }
+    
+    if (currentIndex < questionArray.length - 1 ) {
+        currentIndex++;
+        displayQuestion();
+    } else {
+        endOfGame();
+    }
+});
+
+choices3El.addEventListener("click", function() {
     if (this.textContent === questionArray[currentIndex].answer) {
         score++;
     } else {
@@ -108,7 +138,18 @@ function endOfGame() {
     finalScore.textContent = score;
 }
 
+
 // Score History
+var allPlayers = []
+var allScores = []
+
+submitButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    scoreEl.style.display = "none";
+    highscoresEl.style.display = "initial";
+    allScores.push(score);
+    storeScore.textContent = allScores;
+    })
 
 // // Score 
 // var userIndex = 0;
