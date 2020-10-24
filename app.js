@@ -24,7 +24,6 @@ var currentIndex = 0;
 quizEl.style.display = "none";
 highscoresEl.style.display = "none";
 scoreEl.style.display = "none";
-scoresEl.textContent = score;
 
 // Timer that counts down from one minute to zero
 // Lose 10 seconds when answer question wrong
@@ -88,6 +87,7 @@ function displayQuestion() {
 choices1El.addEventListener("click", function() {
     if (this.textContent === questionArray[currentIndex].answer) {
         score++;
+        scoresEl.textContent = score;
     } else {
         startTime = startTime - 10;
     }
@@ -103,6 +103,7 @@ choices1El.addEventListener("click", function() {
 choices2El.addEventListener("click", function() {
     if (this.textContent === questionArray[currentIndex].answer) {
         score++;
+        scoresEl.textContent = score;
     } else {
         startTime = startTime - 10;
     }
@@ -118,6 +119,7 @@ choices2El.addEventListener("click", function() {
 choices3El.addEventListener("click", function() {
     if (this.textContent === questionArray[currentIndex].answer) {
         score++;
+        scoresEl.textContent = score;
     } else {
         startTime = startTime - 10;
     }
