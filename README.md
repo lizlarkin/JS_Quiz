@@ -11,5 +11,5 @@ memory, using get and set functions. I will revist this and add it in.
 Link to deployed site: https://lizlarkin.github.io/JS_Quiz/quiz.html
 
 Screenshot:
-<img src="">
+<img src="QuizScreenshot.png">
 
