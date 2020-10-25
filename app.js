@@ -24,6 +24,7 @@ var currentIndex = 0;
 quizEl.style.display = "none";
 highscoresEl.style.display = "none";
 scoreEl.style.display = "none";
+scoresEl.textContent = score;
 
 // Timer that counts down from one minute to zero
 // Lose 10 seconds when answer question wrong
@@ -140,7 +141,6 @@ function endOfGame() {
     finalScore.textContent = score;
 }
 
-
 // Score History
 var allPlayers = []
 var allScores = []
@@ -151,43 +151,8 @@ submitButton.addEventListener("click", function(event) {
     highscoresEl.style.display = "initial";
     allScores.push(score);
     storeScore.textContent = allScores;
+    var userName = document.querySelector("#user-name").value;
+    allPlayers.push(userName);
+    storeName.textContent = allPlayers;
     })
 
-// // Score 
-// var userIndex = 0;
-
-// var userName = [];
-// var userScore = [];
-
-// function trackScores() {
-//     // display end of game div
-//     highscoresEl.style.display = "initial";
-//     quizEl.style.display = "none";
-
-//     // collect user information
-//     let userInput = prompt("What is your name?");
-//     userName.push(userInput);
-//     userScore.push(score);
-
-//     // display high scores
-//     storeName.textContent = userName;
-//     storeScore.textContent = userScore;
-// };
-
-
-// var player = {
-//     userName: userInput,
-//     userScore: score,
-// };
-  
-// console.log(player);
-  
-//     // set new submission
-//     localStorage.setItem("player", JSON.stringify(player));
-    
-//     // get most recent submission
-//     var lastPlayer = JSON.parse(localStorage.getItem("player"));
-//     userFirstNameSpan.textContent = lastUser.firstName;
-//     userLastNameSpan.textContent = lastUser.lastName;
-//     userEmailSpan.textContent = lastUser.email;
-//     userPasswordSpan.textContent = lastUser.password;
